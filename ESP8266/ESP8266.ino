@@ -1,17 +1,10 @@
 #define BLINKER_WIFI//通讯方式
 #include <Blinker.h>
-//#include <SoftwareSerial.h>
 #include "ESP8266WiFi.h"
 
-//#define HOME
-#define SCHOOL
-//#define PHONE
-
-#ifdef SCHOOL
-char auth[] = "53acee473caf";//这里填写设备密钥
-char ssid[] = "XBSN";//这里填写wifi
-char pswd[] = "5e53)1T0";//这里填写wifi码
-#endif
+char auth[] = "";//这里填写设备密钥
+char ssid[] = "";//这里填写wifi
+char pswd[] = "";//这里填写wifi码
 
 //暂存数据
 int velocity = 0;
@@ -27,17 +20,14 @@ BlinkerSlider Slider1("ran-wen");//风速调节滑块
 BlinkerNumber temp_num("num-temp");//温度显示模块
 BlinkerNumber humid_num("num-humid");//湿度显示模块
 
-#ifdef SCHOOL
-// Set your Static IP address
+// 这里设置你的局域网IP
 IPAddress local_IP(192, 168, 137, 66);
-// Set your Gateway IP address
+// 这里设置你的网关
 IPAddress gateway(192, 168, 137, 1);
 IPAddress subnet(255, 255, 255, 0);
-#endif
 
 IPAddress primaryDNS(114, 114, 114, 114);
 IPAddress secondaryDNS(8, 8, 8, 8);
-//SoftwareSerial mySerial(3, 1);
 
 //初始化
 void setup()
