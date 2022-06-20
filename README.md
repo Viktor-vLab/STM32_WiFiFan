@@ -1,7 +1,7 @@
 # STM32_WiFiFan
 STM32F103ZET6基于Arduino开发的WIFI智能远程风扇
 
-硬件：STM32F103ZET6开发板、ESP8266开发板、DHT11温湿度传感器、L9110电机、按钮
+硬件：STM32F103ZET6开发板、ESP8266开发板、DHT11温湿度传感器、L9110电机、按钮、有源蜂鸣器
 
 软件：Blinker、Arduino
 
