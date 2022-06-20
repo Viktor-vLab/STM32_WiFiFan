@@ -10,6 +10,7 @@ STM32F103ZET6基于Arduino开发的WIFI智能远程风扇
 需要在Arduino附加开发板管理器网址：
 
 https://raw.githubusercontent.com/stm32duino/BoardManagerFiles/main/package_stmicroelectronics_index.json
+
 https://arduino.esp8266.com/stable/package_esp8266com_index.json
 
 Blinker界面配置：
@@ -72,7 +73,7 @@ Blinker界面配置：
 
 UML图：
 
-![](media\46be9b245cdd78cc020061d27e40d571.png)
+![](media/46be9b245cdd78cc020061d27e40d571.png)
 
 ## 3 系统设计
 
@@ -80,13 +81,13 @@ UML图：
 
 在该系统中，通过手机对ESP8266发送控制风扇指令，ESP8266把指令传到STM32，STM32执行指令并反馈，同时每隔一段时间把温湿度的数据传回给ESP8266，ESP8266再传到手机更新温湿度显示信息
 
-![](media\9c94b284dadfadc1e50588b4453692d3.png)
+![](media/9c94b284dadfadc1e50588b4453692d3.png)
 
 ### 3.2 硬件设计
 
 介绍硬件的整体设计方案，画出硬件结构块图。
 
-![](media\c85632e153d06d39940eadaa51ba3b05.png)
+![](media/c85632e153d06d39940eadaa51ba3b05.png)
 
 ### 3.2.1 关键部分
 
@@ -96,7 +97,7 @@ ESP8266EX 由乐鑫公司开发，提供了一套高度集成的 Wi-Fi SoC 解�
 
 ESP8266EX 拥有完整的且自成体系的 Wi-Fi 网络功能，既能够独立应用，也可以作为从机搭于其它主机 MCU 运行。
 
-![](media\431ec16af9b4da0b242d6d904b85f08d.jpeg)
+![](media/431ec16af9b4da0b242d6d904b85f08d.jpeg)
 
 连接说明
 
@@ -104,7 +105,7 @@ ESP8266EX 拥有完整的且自成体系的 Wi-Fi 网络功能，既能够独立
 
 连接，相反，模块的 TXD 与开发板的 RXD 连接，形成交叉连接的方式。连接原理如图所示。
 
-![](media\3462a482b885cf03f5bc3f1974f71ac3.png)
+![](media/3462a482b885cf03f5bc3f1974f71ac3.png)
 
 ### 3.3 软件设计
 
@@ -112,15 +113,15 @@ ESP8266EX 拥有完整的且自成体系的 Wi-Fi 网络功能，既能够独立
 
 一：STM32通过开发板直接控制风扇的开关，同时手机能远程看见温湿度的数据；用蜂鸣器发出提示声。
 
-![](media\4a689f391805578d74f6b5cee840ca9b.png)
+![](media/4a689f391805578d74f6b5cee840ca9b.png)
 
 二：风扇的模式为温度控制模式，手机只能远程通过修改温度的阈值，当前温度如果大于温度的阈值，风扇自动开启，小于时风扇自动关闭，同时手机能远程看见温湿度的数据；用蜂鸣器发出提示声。
 
-![](media\686d2a58f49f9f161673df95fdc5f4dd.png)
+![](media/686d2a58f49f9f161673df95fdc5f4dd.png)
 
 三：风扇的模式为手动控制开关时，手机可以远程向ESP8266发送指令，ESP8266向STM32传送指令，STM32处理并分析指令后，执行指令，控制风扇的启停、转速和转向，同时手机能远程看见温湿度的数据；用蜂鸣器发出提示声。
 
-![](media\17cced3389d523bcfcb5e007fc613b00.png)
+![](media/17cced3389d523bcfcb5e007fc613b00.png)
 
 ### 3.3.1 关键模块或任务
 
@@ -128,13 +129,13 @@ ESP8266EX 拥有完整的且自成体系的 Wi-Fi 网络功能，既能够独立
 
 共分为5个模块，分别为开关风扇功能模块，温度阈值开关功能模块，风速风向调节模块，输入框指令控制模块，温湿度实时监测并显示模块
 
-![](media\4dfb6097edc97c25ad630f6f52324126.png)
+![](media/4dfb6097edc97c25ad630f6f52324126.png)
 
 Blinker平台介绍
 
 blinker是一个物联网接入方案，blinker是一套专业且快捷的、跨硬件、跨平台的物联网解决方案，提供APP端、设备端、服务器端支持，使用公有云服务进行数据传输存储，旨在让大家可以轻松畅快地DIY物联网设备。能够快速开发物联网 / 智能家居 / 无线遥控项目。
 
-![](media\89729468a7e6cc4dbf010ebc8b7370fb.jpeg)
+![](media/89729468a7e6cc4dbf010ebc8b7370fb.jpeg)
 
 Blinker控制界面（Ui为自己设置）
 
@@ -146,7 +147,7 @@ MQTT是一个基于客户端-服务器的消息发布/订阅传输协议。MQTT�
 
 MQTT是一种发布/订阅传输协议，基本原理和实现如下；
 
-![](E:\原桌面\学习\作业\大三第二学期\基于WIFI的智能风扇\media\ec8ff1a9376337f07f6c3dc9db42936d.png)
+![](media/ec8ff1a9376337f07f6c3dc9db42936d.png)
 
 MQTT 协议提供一对多的消息发布，可以解除应用程序耦合，信息冗余小。该协议需要客户端和服务端，而协议中主要有三种身份：发布者（Publisher）、代理（Broker，服务器）、订阅者（Subscriber）。其中，消息的发布者和订阅者都是客户端，消息代理是服务器，而消息发布者可以同时是订阅者，实现了生产者与消费者的脱耦。
 
@@ -236,7 +237,7 @@ fanNow = 0;
 
 ### 5.1 关键功能测试
 
-![](media\82e291e0fe641133c1fa33f172b9f446.png)
+![](media/82e291e0fe641133c1fa33f172b9f446.png)
 
 如图，串口中接收来自STM32的数据（即温湿度的数据），
 
